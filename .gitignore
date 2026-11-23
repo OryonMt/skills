@@ -15,3 +15,6 @@ release/
 .vercel-token
 *.pem
 *token*.txt
+
+# Material temporal para escribir skills (no se sube)
+Archivos para desarrollo*/
