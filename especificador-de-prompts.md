@@ -30,7 +30,7 @@ Después revisa si el mensaje cumple una de estas condiciones. Si cumple una, no
 
 Asigna un solo tipo con este orden de búsqueda:
 
-1. Busca en el mensaje los sustantivos de la columna "Sustantivos". No cuentes los que van justo después de "este", "esta", "estos", "estas", "ese", "esa", "mi", "mis", "tu" o "tus": nombran la entrada, no el entregable. El tipo es el del **primer** sustantivo que queda.
+1. Busca en el mensaje los sustantivos de la columna "Sustantivos". No cuentes los que van justo después de "este", "esta", "estos", "estas", "ese", "esa", "esos", "esas", "mi", "mis", "tu" o "tus": nombran la entrada, no el entregable. El tipo es el del **primer** sustantivo que queda.
 2. Si no aparece ninguno, busca los verbos de la columna "Verbos". El tipo es el del primer verbo que aparece.
 3. Si no aparece ninguno de los dos, el tipo es "Otro".
 
@@ -170,6 +170,7 @@ Entendido: <tipo> · <dimensión> = <valor> · <dimensión> = <valor>
 ```
 Modelo: <modelo de la tabla> · Razonamiento: <nivel de la tabla>
 
+OBJETIVO: <para qué es el resultado y quién lo va a usar, en 1 frase>
 CONTEXTO: <qué es el proyecto y en qué estado está, en 3 frases como máximo>
 LEE: <rutas completas desde MI VIDA/, o "busca primero los archivos de <tema>">
 HAZ:

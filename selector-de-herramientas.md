@@ -24,6 +24,7 @@ Busca en el mensaje las palabras de la columna "Palabras". La fila es la de la *
 | Fila | Palabras | Herramienta | Alternativa |
 |---|---|---|---|
 | Diseño gráfico | logo, banner, miniatura, flyer, póster, carrusel, imagen | Canva (gratis) | Claude Code, si el entregable es HTML y CSS o SVG |
+| Presentaciones | presentación, diapositivas, slides | Claude, chat en claude.ai: arma la presentación y se edita diapositiva por diapositiva (incluida en Claude Pro) | Claude Code, si la presentación debe ser una web interactiva o usar archivos de la bóveda |
 | Edición de video | reel, short, tiktok, subtítulos, editar video, cortar video, montar video | CapCut (gratis) | Claude Code con Remotion, si el video se hace con código (`Proyectos/Oryon/videos-practica/`) |
 | Programar publicaciones | agendar, programar post, programar publicación, calendario de publicaciones | App nativa de cada red: TikTok, Instagram o YouTube Studio (gratis) | Meta Business Suite (gratis), solo para Instagram y Facebook |
 | Métricas | métricas, seguidores, estadísticas, hoja de cálculo | Google Sheets (gratis) | Claude Code, si los datos están en un archivo de la bóveda |
