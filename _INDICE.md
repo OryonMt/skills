@@ -26,7 +26,7 @@ ultima_actividad: 2026-11-23
 
 ## Skills por categoría
 
-Guardadas: 2 (`auditor-de-skills`, `especificador-de-prompts`).
+Guardadas: 3 (`auditor-de-skills`, `especificador-de-prompts`, `selector-de-herramientas`).
 
 ### 01 · Productividad
 Organizar tiempo, tareas, reuniones, correos, notas, planificación personal.
@@ -50,6 +50,8 @@ _Vacía._
 
 ### 05 · Diseño y contenido
 Imágenes, video, audio, presentaciones, redes sociales, guiones, piezas creativas.
+
+- [[SKILLS/selector-de-herramientas|selector-de-herramientas]] — también elige la app para diseño, video, publicaciones y comunidad (Canva, CapCut, apps nativas, Telegram). Ver en 11 · Meta.
 
 - [[SKILLS/_INDICE#Candidatas|cartoon-audio-short]] — candidata, aún no traída: short animado vertical con guion, voz en off, música y efectos.
 
@@ -82,15 +84,15 @@ _Vacía._
 Crear y mejorar skills, escribir prompts, elegir herramientas de IA, configurar Claude.
 
 - [[SKILLS/auditor-de-skills|auditor-de-skills]] — mide cuán definida (0-16) y cuán compleja es otra skill con rúbrica fija, banderas rojas y correcciones, y la pone a prueba con 8 pedidos que escribe en el momento (no se guardan). **Activa** desde el `CLAUDE.md` cuando pides auditar una skill. Corregida el 2026-11-23 (criterio de "pasa", conteo de Entradas, tasa truncada): auditoría 13/16 Definida, 8/8 pruebas (2026-11-23).
-- [[SKILLS/especificador-de-prompts|especificador-de-prompts]] — antes de ejecutar un pedido, detecta qué datos críticos faltan y los pregunta con preguntas y opciones fijas para 8 tipos de pedido; si no falta nada, ejecuta y declara supuestos. No se aplica a pedidos que cubre otra skill con formato propio. **Activa** desde el `CLAUDE.md` antes de cada pedido. Corregida el 2026-11-23 (preguntas de dato, búsqueda en el repo, segunda ronda de "tú decide", entrada y entregable): auditoría previa 14/16 Blindada, 5/8 pruebas (2026-11-23).
-- [[SKILLS/_INDICE#Candidatas|prompts-code-y-seleccion-herramientas]] — no está en esta carpeta, pero ya está **activa** desde la cuenta de claude.ai: cómo entregar prompts para Claude Code y elegir herramientas.
+- [[SKILLS/especificador-de-prompts|especificador-de-prompts]] — antes de ejecutar un pedido, detecta qué datos críticos faltan y los pregunta con preguntas y opciones fijas para 9 tipos de pedido (el 9.º, Prompt, entrega prompts para Claude Code con modelo y razonamiento según una tabla, 2026-11-23); si no falta nada, ejecuta y declara supuestos. No se aplica a pedidos que cubre otra skill con formato propio. **Activa** desde el `CLAUDE.md` antes de cada pedido. Corregida el 2026-11-23 (preguntas de dato, búsqueda en el repo, segunda ronda de "tú decide", entrada y entregable): auditoría previa 14/16 Blindada, 5/8 pruebas (2026-11-23).
+- [[SKILLS/selector-de-herramientas|selector-de-herramientas]] — elige 1 herramienta y 1 alternativa para una tarea con una tabla fija (solo gratis o incluidas en Claude Pro) y dice cuándo conviene Claude Code. **Activa** desde el `CLAUDE.md` cuando preguntas qué herramienta usar (2026-11-23).
 
 ## Candidatas
 
 Encontradas en el PC, pendiente decidir cuáles traer.
 
 - **cartoon-audio-short**: hace un short animado vertical: 10 ideas, guion y, con tu voz en off, un MP4 con música y efectos. Está en `Descargas\SKILL.md` + `Descargas\cartoon-short-kit.zip` (motor de animación en JS). Encaja con [[Proyectos/Oryon/_INDICE|Oryon]]. Para traerla: el `.md` va aquí y el motor JS va a `Proyectos/Oryon/` (aquí no se guardan scripts).
-- **prompts-code-y-seleccion-herramientas**: tu skill sobre cómo entregar prompts para Claude Code y elegir herramientas, del proyecto Oryon. Vive en tu cuenta de claude.ai y se carga sola en cada sesión de Claude Code. Pendiente: traerla aquí (y borrarla de la cuenta) o dejarla allá.
+- **prompts-code-y-seleccion-herramientas** (traída el 2026-11-23): la parte de prompts para Claude Code pasó al tipo Prompt de `especificador-de-prompts`, y la de elegir herramientas pasó a `selector-de-herramientas`. Su contexto de Oryon ya estaba en `Proyectos/Oryon/plan-maestro.md`. Pendiente: borrarla de la cuenta de claude.ai.
 - **Instaladas en `~/.claude/skills/`**: ninguna. Desde el 2026-11-19 las skills se activan desde el `CLAUDE.md`; se quitaron los enlaces de `~/.claude/skills/`. Antes, el 2026-11-18, se borraron todas las de fuera (graphify, frontend-design, find-skills, 8 de n8n) y se desinstalaron los plugins superpowers y frontend-design.
 
 ## Relacionado

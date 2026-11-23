@@ -1,6 +1,6 @@
 ---
 name: especificador-de-prompts
-description: Antes de ejecutar un pedido del usuario que produce un entregable (texto, código, diseño, video o audio, investigación, análisis de datos, documento o plan), revisa qué datos críticos faltan y pregunta solo esos, con opciones fijas para elegir. Si no falta nada crítico, ejecuta y dice en una línea qué asumió. No se usa para preguntas de dato, confirmaciones, órdenes mecánicas sobre archivos ni pedidos que ya cubre otra skill con formato de salida propio.
+description: Antes de ejecutar un pedido del usuario que produce un entregable (texto, código, diseño, video o audio, investigación, análisis de datos, documento, plan o prompt para Claude Code), revisa qué datos críticos faltan y pregunta solo esos, con opciones fijas para elegir. Si no falta nada crítico, ejecuta y dice en una línea qué asumió. No se usa para preguntas de dato, confirmaciones, órdenes mecánicas sobre archivos ni pedidos que ya cubre otra skill con formato de salida propio.
 ---
 
 # Especificador de prompts
@@ -46,6 +46,7 @@ No distingas mayúsculas, plural ni conjugación. Los verbos "crea", "haz", "haz
 | Datos | gráfico, Excel, hoja de cálculo, métricas, estadística, dashboard, datos | analiza, calcula |
 | Documento | documento, informe, reporte, presentación, PDF, Word, diapositivas, ensayo, monografía | — |
 | Plan | plan, estrategia, cronograma, roadmap, presupuesto | planifica, decide, organiza, prioriza |
+| Prompt | prompt | — |
 
 Ejemplos: "guion para un reel" → Texto ("guion" aparece primero). "Investiga X y hazme un informe" → Documento ("informe" es el único sustantivo). "Corrige el bug" → Código. "Resume este PDF" → Texto ("PDF" va después de "este" y no cuenta; manda el verbo "resume").
 
@@ -100,6 +101,10 @@ Solo las dimensiones críticas (C) tienen pregunta y opciones. La opción a) es 
 | | Restricciones | C | ¿Qué límite hay? | a) Ninguno · b) Presupuesto: dime el monto · c) Plazo: dime la fecha |
 | | Entregable | — | — | Plan en el chat, en pasos numerados |
 | | Horizonte | — | — | 30 días |
+| Prompt | Tarea | C | ¿Qué debe hacer Claude Code? | Sin defecto (respuesta libre) |
+| | Archivos | — | — | Los que nombra el pedido; si no nombra ninguno, el prompt pide buscarlos primero |
+| | Modelo y razonamiento | — | — | Según la tabla del Formato Prompt |
+| | Entregable | — | — | Un bloque de código con el Formato Prompt, para pegar en Claude Code |
 | Otro | Entregable | — | — | Texto en el chat |
 | | Objetivo | — | — | Uso personal |
 
@@ -120,7 +125,7 @@ Las dimensiones no críticas nunca se preguntan: toman el valor de la tabla.
 
 ## Paso 5 — Ejecuta
 
-Si la respuesta es "tú decide" y quedan críticas sin defecto, pregúntalas en 1 Formato A (segunda y última ronda). Si no, escribe la línea del Formato Entendido y ejecuta el pedido. La skill termina ahí.
+Si la respuesta es "tú decide" y quedan críticas sin defecto, pregúntalas en 1 Formato A (segunda y última ronda). Si no, escribe la línea del Formato Entendido y ejecuta el pedido; si el tipo es Prompt, entrégalo con el Formato Prompt. La skill termina ahí.
 
 ## Formatos de salida (exactos)
 
@@ -159,6 +164,31 @@ Entendido: <tipo> · <dimensión> = <valor> · <dimensión> = <valor>
 ```
 
 - Incluye todas las dimensiones críticas del tipo y todas las que tienen estado Dado, en el orden de la tabla.
+
+**Formato Prompt (entregable del tipo Prompt):**
+
+```
+Modelo: <modelo de la tabla> · Razonamiento: <nivel de la tabla>
+
+CONTEXTO: <qué es el proyecto y en qué estado está, en 3 frases como máximo>
+LEE: <rutas completas desde MI VIDA/, o "busca primero los archivos de <tema>">
+HAZ:
+1. <paso en imperativo>
+2. <paso en imperativo>
+ENTREGA: <qué debe quedar hecho y qué debe responder Claude Code al terminar>
+```
+
+- Modelo y razonamiento salen de la primera fila que se cumpla:
+
+| Condición | Modelo | Razonamiento |
+|---|---|---|
+| Estrategia, planificación, arquitectura, decisión con dinero o plazos, o más de 5 archivos | Claude Opus 5.5 (`claude-opus-5-5`) | alto (high) |
+| Programar, redactar o editar en 2 a 5 archivos | Claude Sonnet 5.5 (`claude-sonnet-5-5`) | medio (medium) |
+| Tarea mecánica: mover, renombrar, formatear o 1 cambio exacto en 1 archivo | Claude Haiku 5.5 (`claude-haiku-5-5`) | bajo (low) |
+| Ninguna de las anteriores | Claude Sonnet 5.5 (`claude-sonnet-5-5`) | medio (medium) |
+
+- El prompt es autocontenido: no contiene "como dijimos", "lo de arriba", "eso de antes" ni otra referencia a esta conversación.
+- Modelo y razonamiento solo se escriben en el Formato Prompt, nunca en otras respuestas.
 
 ## Casos límite
 
