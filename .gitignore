@@ -16,5 +16,5 @@ release/
 *.pem
 *token*.txt
 
-# Material temporal para escribir skills (no se sube)
-Archivos para desarrollo*/
+# Ninguna subcarpeta se sube: SKILLS solo guarda .md sueltos (material temporal, capturas, etc.)
+*/
