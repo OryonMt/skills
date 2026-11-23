@@ -1,0 +1,17 @@
+# Mismas exclusiones que subir-a-usb.cmd
+_no-subir/
+node_modules/
+.next/
+venv/
+.venv/
+.claude/
+.vercel/
+out/
+release/
+.gradle/
+
+~$*
+.env*
+.vercel-token
+*.pem
+*token*.txt
