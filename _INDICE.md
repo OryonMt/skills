@@ -1,8 +1,8 @@
 ---
 titulo: SKILLS
 tipo: indice
-actualizado: 2026-11-20
-ultima_actividad: 2026-11-20
+actualizado: 2026-11-23
+ultima_actividad: 2026-11-23
 ---
 
 # SKILLS
@@ -12,6 +12,10 @@ ultima_actividad: 2026-11-20
 ## Respaldo en USB
 
 - Esta carpeta ya no tiene script propio: se sube junto con Proyectos con `MI VIDA/subir-a-usb.cmd` al USB que tiene `RESPALDO-MI-VIDA.txt` en su raíz. Detalles en [[Proyectos/_INDICE#Respaldo en USB|Proyectos → Respaldo en USB]] (2026-11-20).
+
+## Respaldo en GitHub (público)
+
+- Esta carpeta es un repo git que se sube solo cada ~10 min al repo **público** `OryonMt/skills` (tarea `SyncSkillsGitHub` → `MI VIDA/sync-skills.bat`; a mano: `MI VIDA/SUBIR-SKILLS.bat`). `.gitignore` excluye lo mismo que el USB. Nada privado aquí: todo queda público (2026-11-23).
 
 ## Cómo agregar una skill
 
@@ -77,17 +81,17 @@ _Vacía._
 ### 11 · Meta (skills sobre skills y sobre la IA)
 Crear y mejorar skills, escribir prompts, elegir herramientas de IA, configurar Claude.
 
-- [[SKILLS/auditor-de-skills|auditor-de-skills]] — mide cuán definida (0-16) y cuán compleja es otra skill con rúbrica fija, banderas rojas y correcciones, y la pone a prueba con 8 pedidos que escribe en el momento (no se guardan). **Activa** desde el `CLAUDE.md` cuando pides auditar una skill (2026-11-19).
-- [[SKILLS/especificador-de-prompts|especificador-de-prompts]] — antes de ejecutar un pedido, detecta qué datos críticos faltan y los pregunta con preguntas y opciones fijas para 8 tipos de pedido; si no falta nada, ejecuta y declara supuestos. No se aplica a pedidos que cubre otra skill con formato propio. **Activa** desde el `CLAUDE.md` antes de cada pedido (2026-11-19).
-- [[SKILLS/_INDICE#Candidatas|prompts-code-y-seleccion-herramientas]] — candidata, aún no traída: cómo entregar prompts para Claude Code y elegir herramientas.
+- [[SKILLS/auditor-de-skills|auditor-de-skills]] — mide cuán definida (0-16) y cuán compleja es otra skill con rúbrica fija, banderas rojas y correcciones, y la pone a prueba con 8 pedidos que escribe en el momento (no se guardan). **Activa** desde el `CLAUDE.md` cuando pides auditar una skill. Corregida el 2026-11-23 (criterio de "pasa", conteo de Entradas, tasa truncada): auditoría 13/16 Definida, 8/8 pruebas (2026-11-23).
+- [[SKILLS/especificador-de-prompts|especificador-de-prompts]] — antes de ejecutar un pedido, detecta qué datos críticos faltan y los pregunta con preguntas y opciones fijas para 8 tipos de pedido; si no falta nada, ejecuta y declara supuestos. No se aplica a pedidos que cubre otra skill con formato propio. **Activa** desde el `CLAUDE.md` antes de cada pedido. Corregida el 2026-11-23 (preguntas de dato, búsqueda en el repo, segunda ronda de "tú decide", entrada y entregable): auditoría previa 14/16 Blindada, 5/8 pruebas (2026-11-23).
+- [[SKILLS/_INDICE#Candidatas|prompts-code-y-seleccion-herramientas]] — no está en esta carpeta, pero ya está **activa** desde la cuenta de claude.ai: cómo entregar prompts para Claude Code y elegir herramientas.
 
 ## Candidatas
 
 Encontradas en el PC, pendiente decidir cuáles traer.
 
-- **cartoon-audio-short**: hace un short animado vertical: 10 ideas, guion y, con tu voz en off, un MP4 con música y efectos. Está en `Descargas\SKILL.md` + `Descargas\cartoon-short-kit.zip` (motor de animación en JS). Encaja con [[Proyectos/Oryon/_INDICE|Oryon]].
-- **prompts-code-y-seleccion-herramientas**: tu skill sobre cómo entregar prompts para Claude Code y elegir herramientas, del proyecto Oryon. Vive en tu cuenta de claude.ai.
-- **Instaladas en Claude Code**: ninguna. Desde el 2026-11-19 las skills se activan desde el `CLAUDE.md`; se quitaron los enlaces de `~/.claude/skills/`. Antes, el 2026-11-18, se borraron todas las de fuera (graphify, frontend-design, find-skills, 8 de n8n) y se desinstalaron los plugins superpowers y frontend-design.
+- **cartoon-audio-short**: hace un short animado vertical: 10 ideas, guion y, con tu voz en off, un MP4 con música y efectos. Está en `Descargas\SKILL.md` + `Descargas\cartoon-short-kit.zip` (motor de animación en JS). Encaja con [[Proyectos/Oryon/_INDICE|Oryon]]. Para traerla: el `.md` va aquí y el motor JS va a `Proyectos/Oryon/` (aquí no se guardan scripts).
+- **prompts-code-y-seleccion-herramientas**: tu skill sobre cómo entregar prompts para Claude Code y elegir herramientas, del proyecto Oryon. Vive en tu cuenta de claude.ai y se carga sola en cada sesión de Claude Code. Pendiente: traerla aquí (y borrarla de la cuenta) o dejarla allá.
+- **Instaladas en `~/.claude/skills/`**: ninguna. Desde el 2026-11-19 las skills se activan desde el `CLAUDE.md`; se quitaron los enlaces de `~/.claude/skills/`. Antes, el 2026-11-18, se borraron todas las de fuera (graphify, frontend-design, find-skills, 8 de n8n) y se desinstalaron los plugins superpowers y frontend-design.
 
 ## Relacionado
 

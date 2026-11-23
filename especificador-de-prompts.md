@@ -9,13 +9,16 @@ Detecta qué le falta a un pedido para que el resultado salga como el usuario lo
 
 Regla central: se pregunta solo lo **crítico** que **falta**. Lo que está en el pedido, lo que se deduce del contexto y lo que no es crítico no se pregunta: se usa el valor por defecto de las tablas.
 
+- **Entrada:** el último mensaje del usuario y el mensaje anterior de la IA, ambos texto. La respuesta al Formato A es número y letra ("1a 2c"), texto libre o "tú decide".
+- **Entregable final:** 1 respuesta, que es Formato A si faltan 1 o más críticas, o Formato B seguido del pedido ejecutado si faltan 0.
+
 ## Paso 1 — Filtra
 
 Revisa primero el mensaje anterior de la IA. Si era un Formato A, este mensaje es la respuesta: salta al Paso 5.
 
 Después revisa si el mensaje cumple una de estas condiciones. Si cumple una, no apliques la skill: ejecuta el pedido directo y termina.
 
-1. **Pregunta sin entregable:** empieza con "qué", "cómo", "por qué", "cuál", "cuándo", "dónde", "quién", "puedes", "podrías", "explícame", "explica" o "es posible" (con o sin "¿"), y no contiene ninguna palabra de la tabla del Paso 2.
+1. **Pregunta sin entregable:** empieza con "qué", "cómo", "por qué", "cuál", "cuándo", "dónde", "quién", "puedes", "podrías", "explícame", "explica" o "es posible" (con o sin "¿"), y no contiene ninguno de los verbos "crea", "haz", "hazme", "genera", "prepara", "arma", "dame" ni de la columna Verbos del Paso 2. Ejemplo: "¿qué es un endpoint?" se responde directo; "¿puedes hacerme un logo?" no se filtra.
 2. **Confirmación:** el mensaje completo es "sí", "si", "dale", "ok", "hazlo", "listo", "de acuerdo", "perfecto" o "va", con o sin signos.
 3. **Respuesta a la IA:** el mensaje anterior de la IA terminaba en una pregunta y este mensaje no contiene ninguna palabra de la tabla del Paso 2.
 4. **Orden mecánica:** empieza con "borra", "elimina", "mueve", "renombra", "copia", "abre", "instala", "desinstala", "ejecuta", "guarda", "actualiza", "ordena", "organiza" o "limpia", y nombra un archivo, una carpeta o un programa. Esta condición manda sobre la tabla del Paso 2: "organiza mi carpeta Descargas" no es un Plan.
@@ -53,7 +56,7 @@ Ejemplos: "guion para un reel" → Texto ("guion" aparece primero). "Investiga X
 Toma las dimensiones del tipo asignado en la tabla de dimensiones. Marca cada una con un estado:
 
 - **Dado:** está escrito en el pedido.
-- **Deducible:** está en la conversación actual, en un archivo que el usuario nombró, en el `CLAUDE.md` del proyecto o en el `_INDICE.md` de un proyecto que el pedido nombra. Anota de dónde sale.
+- **Deducible:** está en la conversación actual, en un archivo que el usuario nombró, en el `CLAUDE.md` del proyecto, en el `_INDICE.md` de un proyecto que el pedido nombra o en el resultado de hasta 3 búsquedas en el repositorio abierto. Anota de dónde sale.
 - **Falta:** no cumple ninguno de los dos anteriores.
 
 ### Tabla de dimensiones
@@ -117,7 +120,7 @@ Las dimensiones no críticas nunca se preguntan: toman el valor de la tabla.
 
 ## Paso 5 — Ejecuta
 
-Escribe la línea del Formato Entendido en cuanto llegue la respuesta, y ejecuta el pedido. La skill termina ahí.
+Si la respuesta es "tú decide" y quedan críticas sin defecto, pregúntalas en 1 Formato A (segunda y última ronda). Si no, escribe la línea del Formato Entendido y ejecuta el pedido. La skill termina ahí.
 
 ## Formatos de salida (exactos)
 

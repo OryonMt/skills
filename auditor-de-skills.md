@@ -45,7 +45,7 @@ Cuenta solo fuera de comillas, ejemplos y bloques de código. Ejemplo = línea q
 | Medida | Qué se cuenta |
 |---|---|
 | Pasos | Encabezados con "Paso", "Etapa", "Fase" o "Stage" seguidos de un número. Si no hay ninguno, los ítems de listas numeradas |
-| Entradas | Datos o archivos que la skill pide al usuario de forma explícita, cada uno una vez |
+| Entradas | Cada dato o archivo distinto que la skill pide al usuario de forma explícita, contado una vez por nombre: dos preguntas que piden un dato con el mismo nombre cuentan 1 |
 | Salidas | Archivos o informes que la skill entrega al usuario, cada uno una vez |
 | Decisiones | Frases que empiezan con "Si" o "Cuando", más cada fila de una tabla cuya primera columna se titula "Situación", "Condición" o "Caso" |
 | Reglas duras | Frases que contienen "siempre", "nunca", "debe", "obligatorio" o "prohibido", o que empiezan con "No" seguido de un verbo en imperativo |
@@ -104,16 +104,16 @@ Cada texto de reemplazo cumple tres condiciones: tiene como máximo 2 frases, in
 
 ## Paso 5 — Pruebas de uso
 
-Las pruebas se escriben en el momento y viven solo en el informe: no se guardan en ningún archivo.
+Escribe las 8 pruebas solo en el informe, en 0 archivos.
 
 1. Escribe 8 pedidos como los escribiría el usuario, en este orden:
    - 3 que la skill debe atender: uno por cada uno de los 3 primeros casos, tipos o temas que nombra su `description`.
    - 3 que no debe atender: los que su `description` excluye; si excluye menos de 3, pedidos parecidos de otro tema hasta completar 3.
    - 2 casos límite: las 2 primeras filas de su tabla de casos límite; si no tiene tabla, un pedido sin el dato principal y un pedido que mezcla dos temas.
-2. Para cada pedido, escribe el resultado esperado según la `description` y la intención de la skill, antes de leer sus pasos.
+2. Para cada pedido, escribe el resultado esperado usando solo la `description`, sin usar los Pasos de la skill, como 1 de 4 acciones: ejecutar, preguntar, rechazar o responder un mensaje fijo.
 3. Simula los pasos de la skill sobre el pedido, palabra por palabra, y anota en 15 palabras como máximo qué haría. Simula, no ejecutes: no le hagas preguntas al usuario ni produzcas el entregable.
-4. Marca **pasa** si lo simulado coincide con el resultado esperado. Si no coincide, marca **falla**, cita la línea de la skill que provoca la diferencia y agrega una corrección con el formato del Paso 4: `Prueba N — Cita original: "…" → Reemplazar por: …`
-5. Calcula: tasa de pruebas = pruebas que pasan ÷ 8, con dos decimales.
+4. Marca **pasa** si lo simulado y lo esperado tienen la misma acción (ejecutar, preguntar, rechazar o mensaje fijo) y el mismo formato de salida. Si difiere 1 de los 2, marca **falla**, cita la línea de la skill que provoca la diferencia y agrega una corrección con el formato del Paso 4: `Prueba N — Cita original: "…" → Reemplazar por: …`
+5. Calcula: tasa de pruebas = pruebas que pasan ÷ 8, truncada a dos decimales sin redondear (5 ÷ 8 = 0.625 → 0.62).
 
 ## Formato de salida (exacto, en este orden)
 
