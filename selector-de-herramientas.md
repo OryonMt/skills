@@ -19,7 +19,7 @@ Definiciones:
 
 ## Paso 1 — Clasifica la tarea
 
-Busca en el mensaje las palabras de la columna "Palabras". La fila es la de la **primera** palabra que aparece en el mensaje. Si no aparece ninguna, la fila es "Otra". No distingas mayúsculas, plural ni conjugación; en las frases de dos palabras, los artículos entre medio no cuentan ("programar el post" = "programar post").
+Busca en el mensaje las palabras de la columna "Palabras". La fila es la de la **primera** palabra que aparece en el mensaje. Si no aparece ninguna, la fila es "Otra". No distingas mayúsculas, plural ni conjugación; en las frases de dos palabras, los artículos entre medio no cuentan ("programar el post" = "programar post"). No cuentes "app", "programa" ni "herramienta" cuando van justo después de "qué", "cuál" o "con qué": son parte de la pregunta, no de la tarea ("¿qué app uso para editar un reel?" → fila Edición de video).
 
 | Fila | Palabras | Herramienta | Alternativa |
 |---|---|---|---|
@@ -34,6 +34,8 @@ Busca en el mensaje las palabras de la columna "Palabras". La fila es la de la *
 
 ## Paso 2 — Aplica la regla de Claude Code
 
+Aplica estas 2 reglas en orden y quédate con la primera que se cumpla:
+
 1. Si la tarea es una **Tarea de archivos** o pide **Piezas coordinadas**, la Herramienta es Claude Code y la Alternativa es la Herramienta de la fila del Paso 1 ("ninguna" si esa fila ya es Claude Code).
 2. Si no, usa la Herramienta y la Alternativa de la fila del Paso 1.
 
@@ -41,7 +43,7 @@ Busca en el mensaje las palabras de la columna "Palabras". La fila es la de la *
 
 Escribe el Formato de salida con los valores del Paso 2. La skill termina ahí.
 
-## Formato de salida (exacto)
+## Formato de salida (exacto, en este orden)
 
 ```
 HERRAMIENTA: <nombre> (<gratis | incluida en Claude Pro>)
